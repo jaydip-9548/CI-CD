@@ -6,9 +6,10 @@ jobs:
     if: ${{true}}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{github.action}}"
+      - run: echo "Hellow World"
   check-condition:
-    if: ${{false}}
+    needs: check-bats-version
+    if: ${{true}}
     runs-on: ubuntu-latest
     steps:
       - run: echo "False"
