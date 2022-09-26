@@ -6,7 +6,7 @@ jobs:
     if: ${{true}}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$github.action"
+      - run: echo "${{github.action}}"
   check-condition:
     if: ${{false}}
     runs-on: ubuntu-latest
