@@ -6,13 +6,13 @@ on:
         - 'main'
 jobs:
   check-bats-version:
-    if: ${{true}}
+    if: ${{github.event.pull_request.merged == true}}
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hellow World"
   check-condition:
     needs: check-bats-version
-    if: ${{true}}
+    if: success()
     runs-on: ubuntu-latest
     steps:
       - run: echo "False"
