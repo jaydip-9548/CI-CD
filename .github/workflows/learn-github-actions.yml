@@ -3,16 +3,12 @@ name: learn-github-actions
 on: [push]
 jobs:
   check-bats-version:
+    if: ${{true}}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
-  
-  printmyname:
-    runs-on: ubuntu-18.04
+      - run: echo "Truee"
+  check-condition:
+    if: ${{false}}
+    runs-on: ubuntu-latest
     steps:
-      - run: echo "dd"
+      - run: echo "False"
