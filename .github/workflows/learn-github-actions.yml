@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hellow World"
+      - run: echo $job.status 
   check-condition:
     needs: check-bats-version
     if: success()
