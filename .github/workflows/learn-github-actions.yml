@@ -23,4 +23,8 @@ jobs:
         with:
           python-version: ${{matrix.python-version}} 
       - run: sudo apt-get install python3-pip
-      - run: echo ${{docker --version}}
+      - name: Set up Docker ${{matrix.docker-version}}
+        uses: docker/build-push-action@v3
+        with:
+          docker-version: ${{matrix.docker-version}} 
+      - run : echo "${{docker-compose --version}}"
