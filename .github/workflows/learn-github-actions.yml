@@ -29,7 +29,7 @@ jobs:
       - name: Set up Docker ${{matrix.docker-version}}
         uses: docker/build-push-action@v3
         with:
-          docker-version: ${{matrix.docker-version}} 
+          version: ${{matrix.docker-version}} 
       - name: Set up Docker-compose ${{matrix.docker-version}}
         uses: docker/build-push-action@v3
         with:
