@@ -19,5 +19,6 @@ jobs:
           
   TEST:
     runs-on: Build
+    needs: Build
     steps:
       - run: node --version
