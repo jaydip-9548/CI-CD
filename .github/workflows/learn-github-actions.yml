@@ -19,3 +19,5 @@ jobs:
           
   TEST:
     runs-on: Build
+    steps:
+      - run: node --version
