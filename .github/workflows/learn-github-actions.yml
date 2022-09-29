@@ -31,7 +31,7 @@ jobs:
 #         with:
 #           version: ${{matrix.docker-version}} 
       - name: Set up Docker-compose ${{matrix.docker-version}}
-        uses: docker/build-push-action@v3
+        uses: pennsignals/publish_docker-compose@v0.1.0
         with:
           version: ${{matrix.docker-compose-version}} 
           docker_compose: 'docker-compose.yml'
