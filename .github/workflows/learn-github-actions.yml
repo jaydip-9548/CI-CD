@@ -14,5 +14,5 @@ jobs:
           USER_NAME: ${{ secrets.USER_NAME  }}
         run: |
           echo "${PRIVATE_KEY}" > private_key && chmod 600 private_key
-          ssh StrictHostKeyChecking=no -i private_key ubuntu@ec2-54-166-163-216.compute-1.amazonaws.com
+          ssh -i private_key ubuntu@ec2-54-166-163-216.compute-1.amazonaws.com
           ls
