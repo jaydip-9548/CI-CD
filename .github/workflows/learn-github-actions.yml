@@ -30,4 +30,4 @@ jobs:
       - name: Set up Docker-compose ${{matrix.docker-version}}
         uses: docker/build-push-action@v3
         with:
-          version: ${{docker-compose-version}} 
+          version: ${{matrix.docker-compose-version}} 
