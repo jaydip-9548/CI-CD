@@ -15,8 +15,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: 'AKIASW36KQN24D5K6RH7'
-          aws-secret-access-key: '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'
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{env.aws_region}}
       - name: Login with ECR
         run: aws ecr get-login-password --region ${{env.aws_region}} | docker login --username AWS --password-stdin 186559136629.dkr.ecr.${{env.aws_region}}.amazonaws.com
