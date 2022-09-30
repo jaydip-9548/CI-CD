@@ -1,5 +1,7 @@
 name: learn-github-actions
-on: [push]
+on: 
+  release:
+    type: [release]
 env:
   aws_region: ap-south-1
 jobs:
