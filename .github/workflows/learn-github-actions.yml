@@ -1,7 +1,7 @@
 name: learn-github-actions
-on: 
+on:
   release:
-    types: [release]
+    types: [released]
 env:
   aws_region: ap-south-1
 jobs:
