@@ -6,7 +6,9 @@ jobs:
   TEST:
     runs-on: ubuntu-20.04
     steps:
-      - run: echo ${{ GITHUB_BASE_REF }}
+      - uses: nelonoel/branch-name@v1.0.1
+      # Use branch name for whatever purpose
+      - run: echo ${BRANCH_NAME}
 #     - uses: aws-actions/configure-aws-credentials@v1
 #       with:
 #           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
