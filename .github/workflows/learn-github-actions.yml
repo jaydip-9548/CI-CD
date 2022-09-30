@@ -6,7 +6,7 @@ jobs:
   TEST:
     runs-on: ubuntu-20.04
     steps:
-      - run: echo ${github.base_ref} 
+      - run: echo ${{ github.base_ref }}
 #     - uses: aws-actions/configure-aws-credentials@v1
 #       with:
 #           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
