@@ -15,35 +15,10 @@ jobs:
     - uses: actions/checkout@v2 
     - name: Deploy in EC2
       env:
-          PRIVATE_KEY: MIIEpQIBAAKCAQEAmNtuJDto6Z0c+KNdAH2aKuGLvMVxRpy9T5CYdeO02n8GMp6z
-                        yOtuj3hXTfyhGUk8b3g+fS9QoK3r9pKtt+YPmQZO5837N4GpOhCYOklkAWdrQZIV
-                        qDj+2cYOB4DFy11SgNCt550s2fsDEw57Flcauqs0U9mO0M+MlQ5CN7eXpMp3w5TH
-                        ZqDb/iGX91Tfkz9BKu92fuNNWob4tfbjTogz/A9PY1DlwLjiPzpELRBg5qK/xShF
-                        w61MNWh+ep7VuScYYaaoB7IaUkWsGNaSZuLOx6Hveeqe2xWSRyhAlyZ/U6BkUbfn
-                        7LeKTnNq0IP4k61DF+rDdaeajHWUnthobYB6kQIDAQABAoIBAQCIdBo2rfJR2bdr
-                        Hip/raBad03PDlK4vmMhC+uOEd/4zTwzJAlKayEfYkZNkCAf+ojA2Y6vIfXP+nKS
-                        gw4hBHcYG9GEjRSd0FnJQ9cg8TMdLb1Jo6dBrN+UeIE9oW7wxDZKV/9mq6DGVpXA
-                        BUVMBCYQTZVA5Q3gyeatiTUDmBj/OXtOyt3gOlivjnl6aE8xsXnfU6DPf1FixL7F
-                        n5r8CpQpVe1GyQlAk+3G5Ncr3lkdUVloPNHws35op99IhtEHlcwvyhDMKB2Ha5N3
-                        vQkowRFs70ANnHMuxcvKlMOvBeuQJYQVHiIO/XVf8yCqd8nEtuW3n9I6AhPXV5QS
-                        PiFRHnABAoGBAN7bSYsAijRduPfGIhaOu9ywVmLVNfs3wD0nI6HaV6BDQNIxzcXt
-                        7Pv2JdQHNJ7KJAdRzG3ziDaclM5EJ+oHPXDR4VJ3Ot5NvRNVIz2Qwz4g2hY5IoOd
-                        ZJN5YdXtDyFUXtGkvhDBFuFiyA86wFOzOEU9YdSvivdJZ6jAhFXSJUghAoGBAK+X
-                        Fm0dInudk63FTTU2f8VxQyLXf+EFlt9b3QUNYyj4lCPNVPxs1f0P50Dr5isUJxsO
-                        Vrj7xhTg8nWBdL5VgGjXVMB7G6amAxsK+Ijdf/ZjWxkDU39YL8+4CKfomvGpWKiT
-                        +Ms+8/2Kszs/9lB+BEvRnn0H55PsS06l2pX0ByRxAoGAUM8LN9AWTS6+53l82tke
-                        3cNDT8soK9PnbUVH8mSN6Zr5Yj6U8vR3PlXfGacTOZDqx4ytqCDqf4L/olusbXv6
-                        l3JDVffN7NYbfWsdwDFB2sFm0zAch8UGt0MIat3u4pMJXtNx5/lcJpX/HSacnr0Z
-                        5mF/m/ObXFfNsq88TTJKOoECgYEAjCV3TNe4MhnvSP71RMee66QfBawi8SNY7CWS
-                        Hvo0bvsYogq9Dkx/71/GH9co+rE3FS04oqSx0PBKFOeimlf8CbH0fzzDMRvH1snG
-                        3NaNz8Y1a51wA3ALmSs2HW5WXRPhI4wXQ4GXlIIj0+KVYmFyZGGGshyhBTvQT5Gp
-                        CY6gNMECgYEAoB3/hMFZJA54RLpHGborPITJCm7JmoUfznCNtWy3JzLf7aEpAWjR
-                        YSfyAD/LcFqIlJBoLlpiTr9lc/oqi57MsOKXvxD14D8PRpSSKj4D6EB+0FNO/+Mq
-                        RwqHPXkbCfQ7hnoz1RyZ7jqZV92DQTf6aJvBghFzQpOkGPfquYn6uWw=
-
+          PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
           HOSTNAME : ${{ secrets.HOSTNAME  }}
           USER_NAME : ${{ secrets.USER_NAME  }}
           
       run: |
-        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-        sudo ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-54-166-163-216.compute-1.amazonaws.com
+        echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
+        sudo ssh -o StrictHostKeyChecking=no -i "private_key.pem" ubuntu@ec2-54-166-163-216.compute-1.amazonaws.com
