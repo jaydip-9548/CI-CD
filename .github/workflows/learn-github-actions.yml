@@ -1,22 +1,30 @@
-name: learn-github-actions
+
+name: Entropy CI/CD Pipeline
+      
+# on:
+#   release:
+#     types: [released]
+#     branches:
+#       - 'cloned/develop'
 
 on:
-  release:
-    types: [released]
-#     branches:
-#       - 'main'
+  push:
+    branches:
+      - 'entropy-ci-cd-workflow'  
 
-# on:
-#   push:
-#     branches:
-#        - 'CI-CD-TEst'
-env:
-  aws_region: ap-south-1
 jobs:
-  TEST:
+  Deploy:
     runs-on: ubuntu-20.04
+#     needs: Build
     steps:
-      - name: Take code from repository 📥
-        uses: actions/checkout@v3
-      - run: echo ${{github.ref}}
-      - run: ls
+      - name: Run ./Deploy.sh file  📁
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{secrets.SSH_USER}}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            cd entropy 
+            git remote set-url origin https://jaydip-9548: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@github.com/hplustree/entropy.git
+            git fetch 
