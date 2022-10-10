@@ -1,9 +1,14 @@
 name: learn-github-actions
+# on:
+#   release:
+#     types: [released]
+# #     branches:
+# #       - 'main'
+
 on:
-  release:
-    types: [released]
-#     branches:
-#       - 'main'
+  push:
+    branches:
+       - 'main'
 env:
   aws_region: ap-south-1
 jobs:
@@ -13,3 +18,4 @@ jobs:
       - name: Take code from repository 📥
         uses: actions/checkout@v3
       - run: echo ${{github.ref}}
+      - run: ls
