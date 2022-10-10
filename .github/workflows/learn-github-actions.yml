@@ -10,22 +10,6 @@ jobs:
   TEST:
     runs-on: ubuntu-20.04
     steps:
-      - uses: nelonoel/branch-name@v1.0.1
-      # Use branch name for whatever purpose
-      - run: echo ${BRANCH_NAME}
-#     - uses: aws-actions/configure-aws-credentials@v1
-#       with:
-#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#           aws-region: us-east-1
- 
-#     - uses: actions/checkout@v2 
-#     - name: Deploy in EC2
-#       env:
-#           PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
-#           HOSTNAME : ${{ secrets.HOSTNAME  }}
-#           USER_NAME : ${{ secrets.USER_NAME  }}
-          
-#       run: |
-#         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-#         sudo ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-54-166-163-216.compute-1.amazonaws.com
+      - name: Take code from repository 📥
+        uses: actions/checkout@v3
+      - run: echo ${{github.ref_name}}
