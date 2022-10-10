@@ -1,14 +1,15 @@
 name: learn-github-actions
-# on:
-#   release:
-#     types: [released]
-# #     branches:
-# #       - 'main'
 
 on:
-  push:
-    branches:
-       - 'CI-CD-TEst'
+  release:
+    types: [released]
+#     branches:
+#       - 'main'
+
+# on:
+#   push:
+#     branches:
+#        - 'CI-CD-TEst'
 env:
   aws_region: ap-south-1
 jobs:
