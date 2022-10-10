@@ -8,7 +8,7 @@ name: learn-github-actions
 on:
   push:
     branches:
-       - 'main'
+       - 'CI-CD-TEst'
 env:
   aws_region: ap-south-1
 jobs:
