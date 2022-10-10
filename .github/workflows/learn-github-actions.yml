@@ -10,7 +10,7 @@ name: Entropy CI/CD Pipeline
 on:
   push:
     branches:
-      - 'entropy-ci-cd-workflow'  
+      - 'CI-CD'  
 
 jobs:
   Deploy:
