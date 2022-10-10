@@ -2,8 +2,8 @@ name: learn-github-actions
 on:
   release:
     types: [released]
-    branches:
-      - 'main'
+#     branches:
+#       - 'main'
 env:
   aws_region: ap-south-1
 jobs:
