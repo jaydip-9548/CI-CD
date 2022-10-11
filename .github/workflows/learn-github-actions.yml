@@ -17,5 +17,5 @@ jobs:
 #     needs: Build
     steps:
       - name: Run ./Deploy.sh file   
-        run: git remote set-url origin https://jaydip-9548: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@github.com/jaydip-9548/CI-CD
+        run: git remote set-url origin https://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@github.com
       - run: git fetch 
