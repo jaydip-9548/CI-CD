@@ -2,16 +2,14 @@
 name: Entropy CI/CD Pipeline
       
 on:
-  release:
-    types: [released]
+  push:
     branches:
       - 'main'
-
 jobs:
-  Deploy:
-    runs-on: ubuntu-20.04
-#     needs: Build
+  bash-example:
+    runs-on: ubuntu-latest
+    env:
+      MY_NAME: "Mona The Octocat"
     steps:
-      - name: Run ./Deploy.sh file   
-        run: git remote set-url origin https://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@github.com/jaydip-9548/CI-CD
-      - run: git fetch 
+      - name: bash-version
+        run: echo "::add-mask::$MY_NAME"
