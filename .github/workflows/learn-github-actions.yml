@@ -12,4 +12,4 @@ jobs:
       MY_NAME: "Mona The Octocat"
     steps:
       - name: bash-version
-        run: echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
+        run: echo "::error ::$(git fetch)"
